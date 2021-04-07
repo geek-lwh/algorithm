@@ -23,6 +23,7 @@ public class ListNode {
         return listNode1;
     }
 
+
     public static void print(ListNode listNode){
         while (listNode != null){
             System.out.println(listNode.val);

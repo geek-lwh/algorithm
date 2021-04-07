@@ -10,7 +10,7 @@ package list;
 public class Reverse {
 
 
-    public static ListNode reverseList(ListNode head) {
+    public static ListNode solution(ListNode head) {
         ListNode reverse = null;
         while (head != null){
             ListNode newHead = new ListNode(head.val);
@@ -23,7 +23,7 @@ public class Reverse {
     }
 
     public static void main(String[] args) {
-        reverseList(ListNode.simpleListNode());
+        solution(ListNode.simpleListNode());
     }
 
 }
