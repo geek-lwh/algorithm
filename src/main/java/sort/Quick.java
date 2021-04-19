@@ -14,4 +14,44 @@ package sort;
  * 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。
  */
 public class Quick {
+
+    public static int[] solution(int[] nums) {
+        int leftIndex = 0, rightIndex = nums.length - 1;
+        quickSort(nums,leftIndex,rightIndex);
+        return nums;
+    }
+
+    public static void quickSort(int[] arr,int leftIndex,int rightIndex){
+        if(leftIndex >= rightIndex){
+            return;
+        }
+        int left = leftIndex;
+        int right = rightIndex;
+
+        int k = arr[left];
+
+        while (left < right){
+            // 从右边往左边找 arr[right] >= k 指的是找到比左边大的最小index.省略后面的排序了
+            while (right > left && arr[right] >= k){
+                right--;
+            }
+
+            arr[left] = arr[right];
+
+            while (left < right && arr[left] <= k){
+                left++;
+            }
+            arr[right] = arr[left];
+        }
+
+        arr[left] = k;
+
+        quickSort(arr,leftIndex,left - 1);
+        quickSort(arr,right+1,rightIndex);
+    }
+
+    public static void main(String[] args) {
+        int[] nums = ArrayFactory.forSort();
+        ArrayFactory.print(solution(nums));
+    }
 }
